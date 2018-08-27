@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/storeLogo"
+        android:layout_width="103dp"
+        android:layout_height="91dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/placeholder" />
+
+    <TextView
+        android:id="@+id/storeName"
+        android:layout_width="243dp"
+        android:layout_height="31dp"
+        android:text="Store Name"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/storeLogo"
+        app:layout_constraintTop_toTopOf="@id/storeLogo" />
+
+    <TextView
+        android:id="@+id/storeDescription"
+        android:layout_width="243dp"
+        android:layout_height="56dp"
+        android:text="Description"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/storeLogo"
+        app:layout_constraintTop_toBottomOf="@+id/storeName" />
+
+
+</android.support.constraint.ConstraintLayout>

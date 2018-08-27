@@ -1,11 +1,11 @@
-package com.projects.nouran.foodcourt.main;
+package com.projects.nouran.foodcourt;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import com.projects.nouran.foodcourt.R;
+import com.projects.nouran.foodcourt.main.view.MainActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
