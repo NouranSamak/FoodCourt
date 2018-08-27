@@ -14,7 +14,6 @@ import com.projects.nouran.foodcourt.main.pojos.Store;
 import com.projects.nouran.foodcourt.main.presenter.MainPresenter;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.MvpV
             @Override
             public void onResponse(Call<List<Store>> call, Response<List<Store>> response) {
                 stores = response.body();
-                recyclerViewAdapter = new RecyclerViewAdapter(stores);
+                recyclerViewAdapter = new RecyclerViewAdapter(stores, MainActivity.this);
                 recyclerView.setAdapter(recyclerViewAdapter);
             }
 

@@ -1,6 +1,8 @@
 package com.projects.nouran.foodcourt.main;
 
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.projects.nouran.foodcourt.R;
 import com.projects.nouran.foodcourt.main.pojos.Store;
 
@@ -17,9 +21,11 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MainViewHolder> {
 
     private List<Store> stores;
+    private Context context;
 
-    public RecyclerViewAdapter(List<Store> stores) {
+    public RecyclerViewAdapter(List<Store> stores, Context context) {
         this.stores = stores;
+        this.context = context;
     }
 
     @Override
@@ -35,6 +41,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(MainViewHolder viewHolder, int i) {
         viewHolder.nameTextView.setText(stores.get(i).getStoreName());
         viewHolder.descriptionTextView.setText(stores.get(i).getStoreDescription());
+
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.placeholder);
+        requestOptions.error(R.drawable.placeholder);
+
+        viewHolder.imageView.setImageDrawable(Drawable.createFromPath("R.drawable.placeholder"));
+        Glide.with(context).setDefaultRequestOptions(requestOptions).load(stores.get(i).getStoreLogo())
+                .into(viewHolder.imageView);
     }
 
     @Override
