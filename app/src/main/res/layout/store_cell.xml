@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:padding="10dp">
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="0dp">
 
     <ImageView
         android:id="@+id/storeLogo"
         android:layout_width="103dp"
-        android:layout_height="91dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,10 +23,12 @@
         android:id="@+id/storeName"
         android:layout_width="243dp"
         android:layout_height="31dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
         android:text="Store Name"
         android:textSize="18sp"
-        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toEndOf="@+id/storeLogo"
         app:layout_constraintTop_toTopOf="@id/storeLogo" />
 
@@ -30,14 +36,26 @@
         android:id="@+id/storeDescription"
         android:layout_width="243dp"
         android:layout_height="56dp"
-        android:text="Description"
+        android:layout_marginTop="5dp"
         android:ellipsize="end"
         android:maxLines="3"
         android:paddingLeft="10dp"
+        android:text="Description"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toEndOf="@+id/storeLogo"
         app:layout_constraintTop_toBottomOf="@+id/storeName" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="parent"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="115dp" />
 
 
 </android.support.constraint.ConstraintLayout>
