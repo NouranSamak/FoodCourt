@@ -1,5 +1,6 @@
 package com.projects.nouran.foodcourt.main.view;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -98,4 +99,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.MvpV
 
     }
 
+    //Check if the device is rotated.
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            recyclerViewAdapter.isPortrait(true);
+            recyclerViewAdapter.notifyDataSetChanged();
+        } else {
+            recyclerViewAdapter.isPortrait(false);
+            recyclerViewAdapter.notifyDataSetChanged();
+        }
+    }
 }

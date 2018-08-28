@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="15dp"
@@ -14,24 +13,25 @@
         android:layout_width="103dp"
         android:layout_height="0dp"
         android:layout_marginTop="15dp"
+        android:contentDescription="@string/store_logo_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/placeholder"
-        android:contentDescription="@string/store_logo_content" />
+        app:srcCompat="@drawable/placeholder" />
 
     <TextView
         android:id="@+id/storeName"
-        android:layout_width="243dp"
+        android:layout_width="234dp"
         android:layout_height="31dp"
         android:paddingLeft="10dp"
+        android:paddingStart="0dp"
+        android:layout_marginLeft="15dp"
         android:paddingTop="5dp"
         android:text="@string/store_name"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/storeLogo"
-        app:layout_constraintTop_toTopOf="@id/storeLogo"
-        android:paddingStart="10dp" />
+        app:layout_constraintTop_toTopOf="@id/storeLogo" />
 
     <TextView
         android:id="@+id/storeDescription"
@@ -42,23 +42,23 @@
         android:maxLines="3"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:paddingStart="10dp"
         android:text="@string/store_description"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toEndOf="@+id/storeLogo"
-        app:layout_constraintTop_toBottomOf="@+id/storeName"
-        android:paddingStart="10dp" />
+        app:layout_constraintTop_toBottomOf="@+id/storeName" />
 
     <!--<View-->
-        <!--android:id="@+id/divider"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:background="?android:attr/listDivider"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/storeLogo"-->
-        <!--app:layout_constraintStart_toEndOf="parent"-->
-        <!--tools:layout_editor_absoluteX="5dp"-->
-        <!--tools:layout_editor_absoluteY="110dp" />-->
+    <!--android:id="@+id/divider"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="1dp"-->
+    <!--android:background="?android:attr/listDivider"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/storeLogo"-->
+    <!--app:layout_constraintStart_toEndOf="parent"-->
+    <!--tools:layout_editor_absoluteX="5dp"-->
+    <!--tools:layout_editor_absoluteY="110dp" />-->
 
 
 </android.support.constraint.ConstraintLayout>

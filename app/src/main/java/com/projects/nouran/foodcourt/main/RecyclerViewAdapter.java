@@ -1,10 +1,13 @@
 package com.projects.nouran.foodcourt.main;
 
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private List<Store> stores;
     private Context context;
+    Boolean isPortraitFlag = true;
 
     public RecyclerViewAdapter(List<Store> stores, Context context) {
         this.stores = stores;
@@ -52,11 +56,28 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         viewHolder.nameTextView.setText(stores.get(i).getStoreName());
         viewHolder.descriptionTextView.setText(stores.get(i).getStoreDescription());
 
+
+        //Change the width dynamically to handle many screen sizes
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+
+        int deviceWidth = displayMetrics.widthPixels;
+
+        int deviceHeight = displayMetrics.heightPixels;
+
+        if(isPortraitFlag) {
+            viewHolder.descriptionTextView.getLayoutParams().width = (int) (deviceWidth * 0.65);
+            viewHolder.nameTextView.getLayoutParams().width = (int) (deviceWidth * 0.65);
+        } else {
+            viewHolder.descriptionTextView.getLayoutParams().width = (int) (deviceHeight);
+            viewHolder.nameTextView.getLayoutParams().width = (int) (deviceHeight);
+        }
+
+
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(R.drawable.placeholder);
         requestOptions.error(R.drawable.placeholder);
 
-        viewHolder.imageView.setImageDrawable(Drawable.createFromPath("R.drawable.placeholder"));
         Glide.with(context).setDefaultRequestOptions(requestOptions).load(stores.get(i).getStoreLogo())
                 .into(viewHolder.imageView);
     }
@@ -65,6 +86,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public int getItemCount() {
         return stores.size();
     }
+
+    //Set idPortrait flag
+    public void isPortrait(Boolean isPortrait) {
+
+        isPortraitFlag = isPortrait;
+
+    }
+
 
     public class MainViewHolder extends RecyclerView.ViewHolder{
 
