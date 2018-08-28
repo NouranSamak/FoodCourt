@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:paddingBottom="5dp"
+    android:layout_height="wrap_content"
+    android:paddingBottom="15dp"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     android:paddingTop="0dp">
@@ -50,15 +50,15 @@
         app:layout_constraintTop_toBottomOf="@+id/storeName"
         android:paddingStart="10dp" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@+id/storeLogo"
-        app:layout_constraintStart_toEndOf="parent"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="115dp" />
+    <!--<View-->
+        <!--android:id="@+id/divider"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="?android:attr/listDivider"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/storeLogo"-->
+        <!--app:layout_constraintStart_toEndOf="parent"-->
+        <!--tools:layout_editor_absoluteX="5dp"-->
+        <!--tools:layout_editor_absoluteY="110dp" />-->
 
 
 </android.support.constraint.ConstraintLayout>

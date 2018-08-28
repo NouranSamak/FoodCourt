@@ -47,6 +47,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(MainViewHolder viewHolder, int i) {
+
+        //Setting values to UI components.
         viewHolder.nameTextView.setText(stores.get(i).getStoreName());
         viewHolder.descriptionTextView.setText(stores.get(i).getStoreDescription());
 
@@ -71,6 +73,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public MainViewHolder(@NonNull View itemView) {
             super(itemView);
+            //Defining the row's items.
             nameTextView = (TextView)itemView.findViewById(R.id.storeName);
             descriptionTextView = (TextView)itemView.findViewById(R.id.storeDescription);
             imageView = (ImageView) itemView.findViewById(R.id.storeLogo);

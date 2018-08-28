@@ -1,11 +1,11 @@
-package com.projects.nouran.foodcourt;
+package com.projects.nouran.foodcourt.main.view;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import com.projects.nouran.foodcourt.main.view.MainActivity;
+import com.projects.nouran.foodcourt.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -16,6 +16,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        //Setting the Splash Screen to be displayed for 3 seconds and then go to the main screen.
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

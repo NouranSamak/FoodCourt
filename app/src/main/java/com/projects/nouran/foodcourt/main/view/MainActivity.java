@@ -1,8 +1,8 @@
 package com.projects.nouran.foodcourt.main.view;
 
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -12,8 +12,8 @@ import android.widget.EditText;
 import com.projects.nouran.foodcourt.R;
 import com.projects.nouran.foodcourt.main.MainContract;
 import com.projects.nouran.foodcourt.main.RecyclerViewAdapter;
-import com.projects.nouran.foodcourt.main.apiconnection.ApiClient;
-import com.projects.nouran.foodcourt.main.apiconnection.ApiInterface;
+import com.projects.nouran.foodcourt.main.presenter.apiconnection.ApiClient;
+import com.projects.nouran.foodcourt.main.presenter.apiconnection.ApiInterface;
 import com.projects.nouran.foodcourt.main.pojos.Store;
 import com.projects.nouran.foodcourt.main.presenter.MainPresenter;
 
@@ -45,8 +45,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.MvpV
         filterStores = (EditText) findViewById(R.id.searchStores);
         recyclerView = (RecyclerView) findViewById(R.id.storesList);
         layoutManager = new LinearLayoutManager(this);
+
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
+
+        //Adding a divider item to the list.
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
 
@@ -75,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.MvpV
 
             }
 
+            //A listener on the filter search box.
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 List<Store> filteredList = new ArrayList<>();

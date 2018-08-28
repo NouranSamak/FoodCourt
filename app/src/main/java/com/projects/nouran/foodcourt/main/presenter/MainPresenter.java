@@ -15,6 +15,7 @@ public class MainPresenter implements MainContract.MvpPresenter {
     }
 
 
+    //Filtering the stores list and returning the new list.
     @Override
     public List<Store> filterStores(List<Store> stores, String searchInput) {
         List<Store> filteredList = new ArrayList<>();
