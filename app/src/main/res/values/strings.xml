@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FoodCourt</string>
+    <string name="filter_hint">Type to Filter..</string>
+    <string name="store_name">Store Name</string>
+    <string name="store_description">Store Description</string>
+    <string name="store_logo_content">Store Logo</string>
 </resources>

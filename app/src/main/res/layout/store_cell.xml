@@ -17,7 +17,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/placeholder" />
+        app:srcCompat="@drawable/placeholder"
+        android:contentDescription="@string/store_logo_content" />
 
     <TextView
         android:id="@+id/storeName"
@@ -25,12 +26,12 @@
         android:layout_height="31dp"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
-        android:text="Store Name"
+        android:text="@string/store_name"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toEndOf="@+id/storeLogo"
-        app:layout_constraintTop_toTopOf="@id/storeLogo" />
+        app:layout_constraintTop_toTopOf="@id/storeLogo"
+        android:paddingStart="10dp" />
 
     <TextView
         android:id="@+id/storeDescription"
@@ -40,19 +41,21 @@
         android:ellipsize="end"
         android:maxLines="3"
         android:paddingLeft="10dp"
-        android:text="Description"
+        android:paddingRight="10dp"
+        android:text="@string/store_description"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toEndOf="@+id/storeLogo"
-        app:layout_constraintTop_toBottomOf="@+id/storeName" />
+        app:layout_constraintTop_toBottomOf="@+id/storeName"
+        android:paddingStart="10dp" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/storeLogo"
         app:layout_constraintStart_toEndOf="parent"
         tools:layout_editor_absoluteX="5dp"
         tools:layout_editor_absoluteY="115dp" />
