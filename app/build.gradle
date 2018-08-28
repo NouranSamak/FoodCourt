@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword 'foodCourtNouran71'
+            storeFile file('D:/Key Stores/FoodCourt1.jks')
+            storePassword 'foodCourtNouran71'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.projects.nouran.foodcourt"
@@ -9,11 +17,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
     productFlavors {
