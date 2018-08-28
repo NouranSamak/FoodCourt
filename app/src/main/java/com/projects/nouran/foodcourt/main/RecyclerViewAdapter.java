@@ -28,6 +28,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.context = context;
     }
 
+    public List<Store> getStores() {
+        return stores;
+    }
+
+    public void setStores(List<Store> stores) {
+        this.stores = stores;
+    }
+
     @Override
     public MainViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 

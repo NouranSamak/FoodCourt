@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 
 import com.projects.nouran.foodcourt.R;
 import com.projects.nouran.foodcourt.main.MainContract;
@@ -13,6 +16,7 @@ import com.projects.nouran.foodcourt.main.apiconnection.ApiInterface;
 import com.projects.nouran.foodcourt.main.pojos.Store;
 import com.projects.nouran.foodcourt.main.presenter.MainPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.MvpV
     private List<Store> stores;
     private ApiInterface apiInterface;
 
+    private EditText filterStores;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.MvpV
 
         mainPresenter = new MainPresenter(this);
 
+        filterStores = (EditText) findViewById(R.id.searchStores);
         recyclerView = (RecyclerView) findViewById(R.id.storesList);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -54,10 +61,36 @@ public class MainActivity extends AppCompatActivity implements MainContract.MvpV
 
             @Override
             public void onFailure(Call<List<Store>> call, Throwable t) {
-                System.out.println("------------------- Failure -------------------");
-                System.out.println("------------------- Message ------------------- " + t.getMessage());
+                System.out.println("------------------- Failure Message ------------------- " + t.getMessage());
+            }
+        });
+
+
+
+        // Filter the stores list
+        filterStores.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                List<Store> filteredList = new ArrayList<>();
+                if (!charSequence.equals("")) {
+                    filteredList = mainPresenter.filterStores(stores, filterStores.getText().toString());
+                    recyclerViewAdapter.setStores(filteredList);
+                    recyclerViewAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 
     }
+
+
 }
